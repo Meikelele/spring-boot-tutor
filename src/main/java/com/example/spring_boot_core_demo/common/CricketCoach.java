@@ -11,12 +11,12 @@ public class CricketCoach implements Coach {
         System.out.println("In constructor: " + getClass().getSimpleName());
     }
 
-    @PostConstruct
+
     public void doMyStartupStuff() {
         System.out.println("Bean " + getClass().getSimpleName() + " is ready to use.");
     }
 
-    @PreDestroy
+
     public void doMyCleanupStuff() {
         System.out.println("Bean: " + getClass().getSimpleName() + "is ready to delete");
     }
