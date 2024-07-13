@@ -1,0 +1,4 @@
+REST Controller / @RestController
+przetwarza zadania HTTP (GET POST PUT DELETE) i zwraca odpowiedzi w postaci JSON / XML
+umozliwia komunikacje miedzy klientem a serwerem
+
