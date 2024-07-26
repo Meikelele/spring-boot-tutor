@@ -15,7 +15,7 @@ public class SpringBootCoreDemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			System.out.println("Hello fck*** world!");
+			System.out.println("Hello world!");
 		};
 	}
 }
