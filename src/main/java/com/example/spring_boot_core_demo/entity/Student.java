@@ -5,8 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="student")
 public class Student {
-
-    // define fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -21,8 +19,6 @@ public class Student {
     @Column(name="email")
     private String email;
 
-
-    //define constructors
     public Student() {
 
     }
@@ -31,9 +27,6 @@ public class Student {
         this.lastName = lastName;
         this.email = email;
     }
-
-
-    // define getter / setters
 
     public int getId() {
         return id;
@@ -66,8 +59,6 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    // define toString() method
 
 
     @Override
