@@ -4,5 +4,6 @@ import com.example.spring_boot_core_demo.entity.Student;
 public interface StudentDAO {
 
     void save(Student theStudent);
+    Student findById(Integer id);
 
 }

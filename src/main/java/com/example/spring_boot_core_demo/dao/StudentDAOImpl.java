@@ -6,7 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository // communication with database
 public class StudentDAOImpl implements StudentDAO {
 
     // define field for entity menager
@@ -21,9 +21,15 @@ public class StudentDAOImpl implements StudentDAO {
 
     // implement save method
     @Override
-    @Transactional
+    @Transactional // atomic, whenw e update, delete or adding new objects
     public void save(Student theStudent) {
         entityManager.persist(theStudent);
+    }
+
+    @Override
+    public Student findById(Integer id) {
+        //if not found returns null
+        return entityManager.find(Student.class, id);
     }
 
 

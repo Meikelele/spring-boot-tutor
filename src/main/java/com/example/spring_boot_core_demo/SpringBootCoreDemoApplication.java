@@ -17,8 +17,31 @@ public class SpringBootCoreDemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			createStudent(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		//	create the student object
+		System.out.println("Creating a new student object...");
+		Student tempStudent = new Student("Yennefer", "Venderberg", "yenneferd@gmail.com");
+
+		// save the student object
+		System.out.println("Saving the student ...");
+		studentDAO.save(tempStudent);
+
+		// display id of saved student
+		int theId = tempStudent.getId();
+		System.out.println("Saved student. Generated id: " + tempStudent.getId());
+
+		// retrieve student base on the id: priamry key
+		System.out.println("Retrieving student basen on the id: " + theId);
+		Student mystudent = studentDAO.findById(theId);
+
+		// displayy student
+		System.out.println("Found the student: " + mystudent);
+
+
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
