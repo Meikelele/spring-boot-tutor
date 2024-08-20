@@ -12,7 +12,12 @@ import java.util.List;
 @Repository // communication with database
 public class StudentDAOImpl implements StudentDAO {
 
-    // define field for entity menager
+    // entity menager is between data base and entity JPA
+    // persist - CREATE / SAVE
+    //
+    // merge - UPDATE
+    // remove - DELETE
+    //
     private final EntityManager entityManager;
 
 
@@ -55,6 +60,12 @@ public class StudentDAOImpl implements StudentDAO {
         // return results
 
         return theStudent.getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void update(Student theStudent) {
+        entityManager.merge(theStudent);
     }
 
 

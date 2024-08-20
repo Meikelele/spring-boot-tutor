@@ -23,8 +23,10 @@ public class SpringBootCoreDemoApplication {
 
 //			queryForStudents(studentDAO);
 
-			queryForStudentsByLastName(studentDAO);
+//			queryForStudentsByLastName(studentDAO);
 //			createStudent(studentDAO);
+
+			updateStudent(studentDAO);
 		};
 	}
 
@@ -80,6 +82,28 @@ public class SpringBootCoreDemoApplication {
 		for (Student tempStudent : theStudents) {
 			System.out.println(tempStudent);
 		}
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		//retrieve student based on the id
+		int id = 1;
+		System.out.println("Retrieving student based on the id: " + id);
+
+		Student myStudent = studentDAO.findById(id);
+		System.out.println(myStudent);
+
+		System.out.println("Updating student...");
+
+		// change first name to scooby
+		System.out.println("\t changing name to 'Franceska'... ");
+
+		myStudent.setFirstName("Franceska");
+		studentDAO.update(myStudent);
+
+		System.out.println("End updating student...");
+
+		// display updated student
+		System.out.println(myStudent);
 	}
 
 
