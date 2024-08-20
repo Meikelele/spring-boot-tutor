@@ -21,7 +21,10 @@ public class SpringBootCoreDemoApplication {
 		return runner -> {
 //			readStudent(studentDAO);
 
-			queryForStudents(studentDAO);
+//			queryForStudents(studentDAO);
+
+			queryForStudentsByLastName(studentDAO);
+//			createStudent(studentDAO);
 		};
 	}
 
@@ -51,7 +54,7 @@ public class SpringBootCoreDemoApplication {
 	private void createStudent(StudentDAO studentDAO) {
 		//	create the student object
 		System.out.println("Creating a new student object...");
-		Student tempStudent = new Student("Triss", "Merigold", "triss.merigold@gmail.com");
+		Student tempStudent = new Student("Tissani", "Merigold", "tissani.merigold@gmail.com");
 
 		// save the student object
 		System.out.println("Saving the student ...");
@@ -69,6 +72,15 @@ public class SpringBootCoreDemoApplication {
 		}
 	}
 
+	private void queryForStudentsByLastName(StudentDAO studentDAO) {
+		//list of students
+		List<Student> theStudents = studentDAO.findByLastName("Merigold");
+
+		// displaying the students
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
+	}
 
 
 }
