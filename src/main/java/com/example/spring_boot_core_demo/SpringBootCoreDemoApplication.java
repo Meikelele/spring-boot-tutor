@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class SpringBootCoreDemoApplication {
 
@@ -17,7 +19,9 @@ public class SpringBootCoreDemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			readStudent(studentDAO);
+//			readStudent(studentDAO);
+
+			queryForStudents(studentDAO);
 		};
 	}
 
@@ -56,4 +60,15 @@ public class SpringBootCoreDemoApplication {
 		// display id of saved student
 		System.out.println("Saved student. Generated id: " + tempStudent.getId());
 	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+		List<Student> theStudents = studentDAO.findAll();
+
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
+	}
+
+
+
 }
