@@ -26,7 +26,11 @@ public class SpringBootCoreDemoApplication {
 //			queryForStudentsByLastName(studentDAO);
 //			createStudent(studentDAO);
 
-			updateStudent(studentDAO);
+//			updateStudent(studentDAO);
+
+//			deleteStudent(studentDAO);
+
+			deleteAllStudents(studentDAO);
 		};
 	}
 
@@ -95,9 +99,9 @@ public class SpringBootCoreDemoApplication {
 		System.out.println("Updating student...");
 
 		// change first name to scooby
-		System.out.println("\t changing name to 'Franceska'... ");
+		System.out.println("\t changing name to 'Triss'... ");
 
-		myStudent.setFirstName("Franceska");
+		myStudent.setFirstName("Triss");
 		studentDAO.update(myStudent);
 
 		System.out.println("End updating student...");
@@ -106,5 +110,37 @@ public class SpringBootCoreDemoApplication {
 		System.out.println(myStudent);
 	}
 
+	private void deleteStudent(StudentDAO studentDAO) {
+		// getting student based on id
+		int id = 1;
+		Student myStudent = studentDAO.findById(id);
+		System.out.println("Selected student with id: " + id + " -> " + myStudent);
+
+
+		// delete student based on id
+		System.out.println("deleting student...");
+		studentDAO.delete(id);
+		System.out.println("end deleting...");
+
+
+
+		// display student with  id
+		Student tempStudent = studentDAO.findById(id);
+		System.out.println(tempStudent);
+
+
+
+
+
+
+
+	}
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		System.out.println("Deleting all students...");
+		int deletedStudents = studentDAO.deleteAll();
+
+		System.out.println("Number of deleted students: " + deletedStudents);
+	}
 
 }
