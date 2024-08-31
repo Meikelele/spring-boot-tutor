@@ -19,6 +19,7 @@ public class SpringBootCoreDemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
+			createStudent(studentDAO);
 //			readStudent(studentDAO);
 
 //			queryForStudents(studentDAO);
@@ -30,7 +31,9 @@ public class SpringBootCoreDemoApplication {
 
 //			deleteStudent(studentDAO);
 
-			deleteAllStudents(studentDAO);
+//			deleteAllStudents(studentDAO);
+
+
 		};
 	}
 
@@ -60,7 +63,7 @@ public class SpringBootCoreDemoApplication {
 	private void createStudent(StudentDAO studentDAO) {
 		//	create the student object
 		System.out.println("Creating a new student object...");
-		Student tempStudent = new Student("Tissani", "Merigold", "tissani.merigold@gmail.com");
+		Student tempStudent = new Student("Julian", "Jaskier", "jul.jaskd@gmail.com");
 
 		// save the student object
 		System.out.println("Saving the student ...");
